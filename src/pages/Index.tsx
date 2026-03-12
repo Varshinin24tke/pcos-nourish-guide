@@ -1,12 +1,29 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import Navbar from "@/components/Navbar";
+import HeroSection from "@/components/HeroSection";
+import PCOSOverview from "@/components/PCOSOverview";
+import SymptomsSection from "@/components/SymptomsSection";
+import DietRecommendations from "@/components/DietRecommendations";
+import FoodsToAvoid from "@/components/FoodsToAvoid";
+import VideoSection from "@/components/VideoSection";
+import LifestyleSection from "@/components/LifestyleSection";
+import DietTool from "@/components/DietTool";
+import InsightsSection from "@/components/InsightsSection";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen">
+      <Navbar />
+      <HeroSection />
+      <PCOSOverview />
+      <SymptomsSection />
+      <DietRecommendations />
+      <FoodsToAvoid />
+      <VideoSection />
+      <LifestyleSection />
+      <DietTool />
+      <InsightsSection />
+      <Footer />
     </div>
   );
 };
