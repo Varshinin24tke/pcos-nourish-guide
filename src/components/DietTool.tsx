@@ -296,7 +296,7 @@ const DietTool = () => {
                 onClick={handleGenerate}
                 className="mt-6 w-full rounded-full bg-primary px-6 py-3 font-semibold text-primary-foreground"
               >
-                🔄 Regenerate Diet Plan
+                🔄 Generate Diet Plan
               </button>
 
             </div>
