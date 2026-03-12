@@ -51,12 +51,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-10 border-t pt-6 text-center">
-          <p className="text-xs text-muted-foreground">
-            ⚕️ <strong>Disclaimer:</strong> This website is for educational
-            purposes only and is not a substitute for professional medical
-            advice, diagnosis, or treatment. Always consult your healthcare
-            provider.
-          </p>
+          
           <p className="mt-2 text-xs text-muted-foreground">
             © {new Date().getFullYear()} PCOS Nourish. Made with 💗
           </p>

@@ -9,37 +9,106 @@ interface DietPlan {
   dinner: string;
 }
 
-const generatePlan = (age: number, weight: number, height: number, activity: string, symptoms: string[]): DietPlan => {
+const random = (arr: string[]) => arr[Math.floor(Math.random() * arr.length)];
+
+const generatePlan = (
+  age: number,
+  weight: number,
+  height: number,
+  activity: string,
+  symptoms: string[]
+): DietPlan => {
   const bmi = weight / ((height / 100) ** 2);
   const isOverweight = bmi > 25;
-  const hasInsulinIssues = symptoms.includes("weight") || symptoms.includes("cravings");
+  const hasInsulinIssues =
+    symptoms.includes("weight") || symptoms.includes("cravings");
 
   if (isOverweight || hasInsulinIssues) {
     return {
-      breakfast: "Greek yogurt with chia seeds, berries, and a sprinkle of cinnamon",
-      snack1: "Handful of almonds and a green apple",
-      lunch: "Grilled salmon with quinoa and roasted vegetables",
-      snack2: "Carrot sticks with hummus",
-      dinner: "Lentil soup with a side of steamed broccoli and brown rice",
+      breakfast: random([
+        "Greek yogurt with chia seeds and berries",
+        "Oatmeal with flax seeds and almonds",
+        "Vegetable omelette with whole grain toast",
+      ]),
+      snack1: random([
+        "Handful of almonds and a green apple",
+        "Roasted chickpeas",
+        "Greek yogurt with walnuts",
+      ]),
+      lunch: random([
+        "Grilled salmon with quinoa and roasted vegetables",
+        "Brown rice with lentil curry and salad",
+        "Quinoa salad with chickpeas and avocado",
+      ]),
+      snack2: random([
+        "Carrot sticks with hummus",
+        "Cucumber slices with yogurt dip",
+        "Mixed nuts and seeds",
+      ]),
+      dinner: random([
+        "Lentil soup with steamed broccoli",
+        "Tofu stir-fry with vegetables",
+        "Grilled chicken with quinoa and salad",
+      ]),
     };
   }
 
   if (activity === "high") {
     return {
-      breakfast: "Oatmeal with banana, walnuts, and flaxseed",
-      snack1: "Protein smoothie with spinach and berries",
-      lunch: "Chicken breast with sweet potato and avocado salad",
-      snack2: "Trail mix with dark chocolate chips",
-      dinner: "Tofu stir-fry with brown rice and mixed vegetables",
+      breakfast: random([
+        "Oatmeal with banana and walnuts",
+        "Whole grain toast with peanut butter",
+        "Protein smoothie with berries",
+      ]),
+      snack1: random([
+        "Protein smoothie with spinach",
+        "Mixed nuts and dried fruit",
+        "Greek yogurt with honey",
+      ]),
+      lunch: random([
+        "Chicken breast with sweet potato",
+        "Quinoa bowl with grilled vegetables",
+        "Brown rice with tofu curry",
+      ]),
+      snack2: random([
+        "Trail mix with dark chocolate",
+        "Peanut butter with apple slices",
+        "Protein bar",
+      ]),
+      dinner: random([
+        "Tofu stir-fry with brown rice",
+        "Grilled fish with vegetables",
+        "Paneer curry with whole wheat roti",
+      ]),
     };
   }
 
   return {
-    breakfast: "Whole grain toast with avocado and poached eggs",
-    snack1: "Fresh fruit salad with a drizzle of honey",
-    lunch: "Mediterranean salad with chickpeas, feta, and olive oil dressing",
-    snack2: "Rice cakes with almond butter",
-    dinner: "Baked chicken with roasted sweet potatoes and steamed green beans",
+    breakfast: random([
+      "Whole grain toast with avocado and poached eggs",
+      "Oatmeal with berries and flaxseed",
+      "Greek yogurt with granola",
+    ]),
+    snack1: random([
+      "Fresh fruit salad",
+      "Handful of almonds",
+      "Peanut butter with apple slices",
+    ]),
+    lunch: random([
+      "Mediterranean salad with chickpeas",
+      "Quinoa vegetable bowl",
+      "Brown rice with lentils and vegetables",
+    ]),
+    snack2: random([
+      "Rice cakes with almond butter",
+      "Mixed nuts",
+      "Yogurt with berries",
+    ]),
+    dinner: random([
+      "Baked chicken with roasted sweet potatoes",
+      "Vegetable stir fry with tofu",
+      "Paneer with whole wheat roti",
+    ]),
   };
 };
 
@@ -66,8 +135,37 @@ const DietTool = () => {
     );
 
   const handleGenerate = () => {
-    if (!age || !weight || !height) return;
-    setPlan(generatePlan(Number(age), Number(weight), Number(height), activity, symptoms));
+    if (!age || !weight || !height) {
+      alert("Please fill all fields.");
+      return;
+    }
+
+    const a = Number(age);
+    const w = Number(weight);
+    const h = Number(height);
+
+    if (a <= 0 || w <= 0 || h <= 0) {
+      alert("Age, weight and height must be positive values.");
+      return;
+    }
+
+    if (a < 10 || a > 100) {
+      alert("Please enter a valid age (10-100).");
+      return;
+    }
+
+    if (w < 30 || w > 200) {
+      alert("Please enter a valid weight (30-200 kg).");
+      return;
+    }
+
+    if (h < 120 || h > 220) {
+      alert("Please enter a valid height (120-220 cm).");
+      return;
+    }
+
+    const newPlan = generatePlan(a, w, h, activity, symptoms);
+    setPlan(newPlan);
   };
 
   return (
@@ -75,47 +173,56 @@ const DietTool = () => {
       <div className="container max-w-3xl">
         <div className="mb-12 text-center">
           <h2 className="mb-4 text-3xl font-bold md:text-4xl">
-            Get Your Personalized{" "}
-            <span className="text-primary">Diet Plan</span>
+            Get Your Personalized <span className="text-primary">Diet Plan</span>
           </h2>
           <p className="mx-auto max-w-2xl text-muted-foreground">
-            Answer a few questions to receive a suggested daily meal plan
-            tailored for PCOS management.
+            Answer a few questions to receive a suggested daily meal plan tailored for PCOS management.
           </p>
         </div>
 
         <div className="rounded-2xl bg-card p-6 soft-shadow-lg md:p-8">
+
           <div className="grid gap-5 sm:grid-cols-3">
+
             <div>
               <label className="mb-1.5 block text-sm font-semibold">Age</label>
               <input
                 type="number"
                 value={age}
+                min="10"
+                max="100"
                 onChange={(e) => setAge(e.target.value)}
                 placeholder="25"
                 className="w-full rounded-xl border bg-background px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-primary/30"
               />
             </div>
+
             <div>
               <label className="mb-1.5 block text-sm font-semibold">Weight (kg)</label>
               <input
                 type="number"
                 value={weight}
+                min="30"
+                max="200"
                 onChange={(e) => setWeight(e.target.value)}
                 placeholder="65"
                 className="w-full rounded-xl border bg-background px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-primary/30"
               />
             </div>
+
             <div>
               <label className="mb-1.5 block text-sm font-semibold">Height (cm)</label>
               <input
                 type="number"
                 value={height}
+                min="120"
+                max="220"
                 onChange={(e) => setHeight(e.target.value)}
                 placeholder="165"
                 className="w-full rounded-xl border bg-background px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-primary/30"
               />
             </div>
+
           </div>
 
           <div className="mt-5">
@@ -165,9 +272,11 @@ const DietTool = () => {
 
           {plan && (
             <div className="mt-8 animate-fade-up rounded-2xl bg-rose/60 p-6">
+
               <h3 className="mb-4 text-center text-xl font-bold">
                 Your Suggested Daily Plan
               </h3>
+
               <div className="space-y-3">
                 {[
                   { label: "🌅 Breakfast", meal: plan.breakfast },
@@ -182,8 +291,17 @@ const DietTool = () => {
                   </div>
                 ))}
               </div>
+
+              <button
+                onClick={handleGenerate}
+                className="mt-6 w-full rounded-full bg-primary px-6 py-3 font-semibold text-primary-foreground"
+              >
+                🔄 Regenerate Diet Plan
+              </button>
+
             </div>
           )}
+
         </div>
       </div>
     </section>

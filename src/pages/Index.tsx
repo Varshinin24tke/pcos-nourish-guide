@@ -1,7 +1,5 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
-import PCOSOverview from "@/components/PCOSOverview";
-import SymptomsSection from "@/components/SymptomsSection";
 import DietRecommendations from "@/components/DietRecommendations";
 import FoodsToAvoid from "@/components/FoodsToAvoid";
 import VideoSection from "@/components/VideoSection";
@@ -15,8 +13,6 @@ const Index = () => {
     <div className="min-h-screen">
       <Navbar />
       <HeroSection />
-      <PCOSOverview />
-      <SymptomsSection />
       <DietRecommendations />
       <FoodsToAvoid />
       <VideoSection />

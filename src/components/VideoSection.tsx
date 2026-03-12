@@ -1,7 +1,7 @@
 const videos = [
-  { id: "8cxhp1ep2u0", title: "PCOS Diet: What You Should Eat" },
-  { id: "S_o3vKAHge4", title: "Best Foods for PCOS Management" },
-  { id: "bNmMxW3965w", title: "Exercise Tips for PCOS" },
+  { id: "VrFaw0J7p_E", title: "PCOS Diet: What You Should Eat" },
+  { id: "nFICQc4tmdc", title: "Best Foods for PCOS Management" },
+  { id: "5JvbjrLESPs", title: "Exercise Tips for PCOS" },
 ];
 
 const VideoSection = () => {
@@ -17,6 +17,7 @@ const VideoSection = () => {
             lifestyle management.
           </p>
         </div>
+
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {videos.map((v) => (
             <div
@@ -33,12 +34,14 @@ const VideoSection = () => {
                   loading="lazy"
                 />
               </div>
+
               <div className="p-4">
                 <h3 className="font-bold">{v.title}</h3>
               </div>
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );

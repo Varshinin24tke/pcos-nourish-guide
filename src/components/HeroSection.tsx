@@ -24,12 +24,7 @@ const HeroSection = () => {
             >
               Get My Diet Plan
             </a>
-            <a
-              href="#pcos-overview"
-              className="inline-flex items-center justify-center rounded-full border-2 border-primary bg-primary-foreground px-8 py-3.5 font-semibold text-primary transition-all hover:bg-primary/5"
-            >
-              Learn About PCOS
-            </a>
+            
           </div>
         </div>
         <div className="flex-1">
