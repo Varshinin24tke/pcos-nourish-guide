@@ -12,7 +12,7 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
-      
+      <HeroSection />
       <DietRecommendations />
       <FoodsToAvoid />
       <VideoSection />
