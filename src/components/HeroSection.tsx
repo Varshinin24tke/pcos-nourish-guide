@@ -13,6 +13,8 @@ const HeroSection = () => {
             Nourish Your Body with{" "}
             <span className="text-primary">PCOS-Friendly</span> Nutrition
           </h1>
+          <br/> 
+          <br/>
           <p className="mb-8 max-w-lg text-lg text-muted-foreground">
             Diet guidance, educational resources, and lifestyle
             tips for managing PCOS naturally.
