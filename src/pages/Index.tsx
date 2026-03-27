@@ -17,7 +17,6 @@ const Index = () => {
       <FoodsToAvoid />
       <VideoSection />
       <LifestyleSection />
-      <DietTool />
       <InsightsSection />
       <Footer />
     </div>
