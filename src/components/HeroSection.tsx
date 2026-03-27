@@ -14,16 +14,11 @@ const HeroSection = () => {
             <span className="text-primary">PCOS-Friendly</span> Nutrition
           </h1>
           <p className="mb-8 max-w-lg text-lg text-muted-foreground">
-            Personalized diet guidance, educational resources, and lifestyle
+            Diet guidance, educational resources, and lifestyle
             tips for managing PCOS naturally.
           </p>
           <div className="flex flex-col gap-4 sm:flex-row sm:justify-center md:justify-start">
-            <a
-              href="#diet-tool"
-              className="inline-flex items-center justify-center rounded-full bg-primary px-8 py-3.5 font-semibold text-primary-foreground transition-all hover:opacity-90 soft-shadow"
-            >
-              Get My Diet Plan
-            </a>
+           
             
           </div>
         </div>
